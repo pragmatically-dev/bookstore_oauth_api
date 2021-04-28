@@ -7,6 +7,6 @@ import (
 
 //InitApplication as
 func InitApplication() {
-	dbRepository := db.DBRepository
-	atService := access_token.NewService()
+	atService := access_token.NewService(db.NewDBRepository())
+	
 }

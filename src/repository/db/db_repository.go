@@ -5,10 +5,9 @@ import (
 	"github.com/pragmatically-dev/bookstore_oauth_api/src/utils/errors"
 )
 
-type dbRepository struct {
-}
+type dbRepository struct{}
 
-func NewDBRepository() DBRepository {
+func NewDBRepository() IDBRepository {
 	return &dbRepository{}
 }
 
