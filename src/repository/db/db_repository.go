@@ -12,5 +12,7 @@ func NewDBRepository() IDBRepository {
 }
 
 func (d *dbRepository) GetByID(ID string) (*access_token.AccessToken, *errors.APIErrors) {
-	return nil, nil
+	var errs errors.APIErrors
+	errs.AddError(errors.NewInternalServerError("Internal Server Error", "Database not implemented yet"))
+	return nil, &errs
 }

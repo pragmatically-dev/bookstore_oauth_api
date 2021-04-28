@@ -16,6 +16,15 @@ func InitApplication() {
 
 	atService := access_token.NewService(db.NewDBRepository())
 	atHandler := http_access_token.NewHandler(atService)
+	router.Use(Json())
+	//Initalize the routes
 	initializeRoutes(atHandler)
 	router.Run()
+}
+
+//Middleware Json
+func Json() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		c.Header("Content-Type", "application/json")
+	}
 }

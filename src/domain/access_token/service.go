@@ -16,6 +16,10 @@ func NewService(repository Repository) Service {
 	}
 }
 
-func (s *service) GetByID(ID string) (*AccessToken, *errors.APIErrors) {
-	return nil, nil
+func (s *service) GetByID(accessTokenID string) (*AccessToken, *errors.APIErrors) {
+	accessToken, err := s.repository.GetByID(accessTokenID)
+	if err != nil {
+		return nil, err
+	}
+	return accessToken, nil
 }
