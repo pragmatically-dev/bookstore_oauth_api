@@ -11,6 +11,6 @@ func NewDBRepository() IDBRepository {
 	return &dbRepository{}
 }
 
-func (d *dbRepository) GetByID(string) (*access_token.AccessToken, *errors.APIErrors) {
+func (d *dbRepository) GetByID(ID string) (*access_token.AccessToken, *errors.APIErrors) {
 	return nil, nil
 }
