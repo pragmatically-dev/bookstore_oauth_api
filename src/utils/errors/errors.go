@@ -2,35 +2,35 @@ package errors
 
 import "net/http"
 
-//UserError implements error interface from builtin
-type UserError struct {
+//ApiError implements error interface from builtin
+type ApiError struct {
 	Reason string `json:"reason,omitempty"`
 	Msg    string `json:"message,omitempty"`
 	Code   int    `json:"code,omitempty"`
 }
 
-func (u *UserError) Error() string {
+func (u *ApiError) Error() string {
 	return u.Msg
 }
 
-func NewBadRequestError(msg, reason string) *UserError {
-	return &UserError{
+func NewBadRequestError(msg, reason string) *ApiError {
+	return &ApiError{
 		Reason: reason,
 		Msg:    msg,
 		Code:   http.StatusBadRequest,
 	}
 }
 
-func NewNotFoundError(msg, reason string) *UserError {
-	return &UserError{
+func NewNotFoundError(msg, reason string) *ApiError {
+	return &ApiError{
 		Reason: reason,
 		Msg:    msg,
 		Code:   http.StatusNotFound,
 	}
 }
 
-func NewInternalServerError(msg, reason string) *UserError {
-	return &UserError{
+func NewInternalServerError(msg, reason string) *ApiError {
+	return &ApiError{
 		Reason: reason,
 		Msg:    msg,
 		Code:   http.StatusInternalServerError,
