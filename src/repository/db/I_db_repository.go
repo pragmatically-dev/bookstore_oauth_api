@@ -7,4 +7,6 @@ import (
 
 type IDBRepository interface {
 	GetByID(string) (*access_token.AccessToken, *errors.APIErrors)
+	Create(*access_token.AccessToken) *errors.APIErrors
+	UpdateExpirationTime(*access_token.AccessToken) *errors.APIErrors
 }

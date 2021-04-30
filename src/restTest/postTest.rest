@@ -1,0 +1,10 @@
+
+
+POST http://localhost:8080/oauth/access_token HTTP/1.1
+
+{
+    "access_token" :  "asdasdas",
+    "user_id" :  1,
+    "client_id" :  2,
+    "expires" :  123
+}

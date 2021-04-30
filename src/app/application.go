@@ -15,11 +15,7 @@ var (
 //InitApplication as
 func InitApplication() {
 	//DB initialize
-	session, dbErr := cassandra.GetSession()
-	if dbErr != nil {
-		panic(dbErr)
-	}
-	session.Close()
+	cassandra.GetSession()
 	//Registering services
 	atService := access_token.NewService(db.NewDBRepository())
 	atHandler := http_access_token.NewHandler(atService)

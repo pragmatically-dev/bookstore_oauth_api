@@ -11,16 +11,21 @@ const (
 )
 
 var (
-	clauster *gocql.ClusterConfig
+	session *gocql.Session
 )
 
 func init() {
 	//Connect to Cassandra clauster
-	clauster = gocql.NewCluster(host)
+	clauster := gocql.NewCluster(host)
 	clauster.Keyspace = keyspace
 	clauster.Consistency = consistency
+	var err error
+	session, err = clauster.CreateSession()
+	if err != nil {
+		panic(err)
+	}
 }
 
-func GetSession() (*gocql.Session, error) {
-	return clauster.CreateSession()
+func GetSession() *gocql.Session {
+	return session
 }
